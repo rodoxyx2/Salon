@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Rode's Salón</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Rode's Salón</h1>
+  <button onclick="cargar()">Ver Clientes</button>
+  <pre id="out"></pre>
+
+  <script>
+    async function cargar() {
+      const r = await fetch("/clientes");
+      const d = await r.json();
+      document.getElementById("out").textContent =
+        JSON.stringify(d, null, 2);
+    }
+  </script>
+</body>
+</html>
