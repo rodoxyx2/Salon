@@ -1,5 +1,4 @@
-/* style.css */
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&display=swap');
 
 * {
   box-sizing: border-box;
@@ -7,83 +6,123 @@
 
 body {
   margin: 0;
-  font-family: 'Playfair Display', serif;
-  background: linear-gradient(135deg, #0b0b0b, #2a0000);
+  font-family: 'Cormorant Garamond', serif;
+  background: linear-gradient(135deg, #050000, #3b000f, #120000);
   color: #fff;
   min-height: 100vh;
 }
 
+/* CONTENEDOR GENERAL DE CADA PANTALLA */
 .pantalla {
   max-width: 800px;
   margin: auto;
   padding: 40px 20px;
   text-align: center;
+  animation: aparecer 0.6s ease;
 }
 
+/* CAJA OSCURA CON BORDE NEÓN (PARA TODO EL TEXTO) */
+.caja,
+.mensaje,
+.intro,
+h1,
+h2,
+p,
+textarea {
+  background: rgba(0, 0, 0, 0.65);
+  padding: 22px;
+  border-radius: 16px;
+  box-shadow:
+    0 0 14px rgba(255, 0, 80, 0.35),
+    0 0 30px rgba(255, 0, 80, 0.15);
+}
+
+/* TÍTULOS */
 h1, h2 {
-  color: #ffb3b3;
+  color: #ffb3c1;
+  margin-bottom: 20px;
 }
 
+/* TEXTO INTRO */
 .intro {
-  opacity: 0.8;
+  opacity: 0.9;
   margin-bottom: 30px;
+  font-size: 1.15rem;
 }
 
+/* BLOQUE DEL MENSAJE PRINCIPAL */
 .mensaje {
-  background: rgba(255, 255, 255, 0.08);
-  padding: 25px;
-  border-radius: 12px;
-  margin-bottom: 30px;
   text-align: left;
+  margin-bottom: 30px;
+  line-height: 1.8;
+  font-size: 1.15rem;
 }
 
+/* TEXTAREA */
 textarea {
   width: 100%;
   min-height: 120px;
-  border-radius: 10px;
   border: none;
-  padding: 15px;
-  font-size: 15px;
-  margin-top: 15px;
+  outline: none;
+  resize: none;
+  margin-top: 20px;
+  font-size: 1.05rem;
+  color: #fff;
+  font-family: 'Cormorant Garamond', serif;
 }
 
+/* BOTONES */
 .botones {
   display: flex;
   gap: 15px;
-  justify-content: center;
-  flex-wrap: wrap;
   margin-top: 20px;
 }
 
 button {
-  background: #8b0000;
+  flex: 1;
+  background: linear-gradient(90deg, #7a001c, #b3002d);
   border: none;
-  padding: 12px 28px;
+  padding: 14px;
   color: white;
-  font-size: 16px;
+  font-size: 1.05rem;
   border-radius: 30px;
   cursor: pointer;
-  transition: transform 0.2s ease, background 0.2s ease;
+  box-shadow: 0 0 12px rgba(255, 0, 80, 0.4);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 button:hover {
-  background: #b30000;
   transform: scale(1.05);
+  box-shadow: 0 0 18px rgba(255, 0, 80, 0.7);
 }
 
-button.neon {
-  background: linear-gradient(90deg, #ff0033, #ff5f6d);
-  box-shadow: 0 0 10px rgba(255, 0, 51, 0.6);
-}
-
-button.secundario {
-  background: transparent;
-  border: 1px solid #ff5f6d;
-  color: #ffb3b3;
-}
-
+/* ESTADO DE MENSAJES */
 #estado {
   margin-top: 15px;
-  font-size: 14px;
-  opacity: 0.85;
+  font-size: 0.95rem;
+  text-align: center;
+}
+
+#estado.ok {
+  color: #ffb3c1;
+}
+
+#estado.error {
+  color: #ff6b6b;
+}
+
+#estado.enviando {
+  color: #f5c6cb;
+}
+
+/* ANIMACIÓN */
+@keyframes aparecer {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
