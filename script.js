@@ -1,6 +1,6 @@
 // CAMBIA ESTO CON TUS DATOS DE SUPABASE
-const SUPABASE_URL = "https://TU_PROYECTO.supabase.co";
-const SUPABASE_KEY = "TU_ANON_KEY";
+const SUPABASE_URL = "https://zhtrkbsmgfcspcfhzrbo.supabase.co";
+const SUPABASE_KEY = "sb_publishable_h3msqQrqi9d1Gc7-IG7L1w_zLKRUUmU";
 
 function cambiarPantalla(id) {
   document.querySelectorAll(".pantalla").forEach(p => p.classList.remove("activa"));
