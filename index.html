@@ -1,22 +1,46 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>Rode's Salón</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <title>Para mi amor 🤍</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <h1>Rode's Salón</h1>
-  <button onclick="cargar()">Ver Clientes</button>
-  <pre id="out"></pre>
 
-  <script>
-    async function cargar() {
-      const r = await fetch("/clientes");
-      const d = await r.json();
-      document.getElementById("out").textContent =
-        JSON.stringify(d, null, 2);
-    }
-  </script>
+  <!-- PANTALLA INICIAL -->
+  <section id="inicio" class="pantalla activa">
+    <h1>Para mi amor 🤍</h1>
+    <button onclick="mostrarMensaje()">Ver mensaje</button>
+  </section>
+
+  <!-- MENSAJE -->
+  <section id="mensaje" class="pantalla">
+    <p>
+      Sé que no siempre tenemos de qué hablar, pero quiero que sepas que siempre estás en mi mente. 
+      Quiero que sepas que siempre te tomo en cuenta para cualquier cosa que haga. 
+      Cuando no estoy en mi casa y aún estando en ella, siempre pienso: 
+      <strong>"ojalá estuvieras aquí"</strong>. 
+      Siempre pienso en estar contigo, en llenarte la carita de besos, en simplemente estar a tu lado. 
+      Quiero hacerte feliz y quiero que te sientas amado conmigo. 
+      Aunque sabes que tengo un problemita pequeñititico con expresar mis emociones o sentimientos, 
+      pero siempre tienes que tener en claro que cuando te digo que te amo, 
+      lo hago de la manera más sincera posible y de la manera más real que puedas creer. 
+      Eres una persona muy especial en mi vida y espero que nunca lo olvides.
+      <br><br>
+      Y aunque a veces el silencio se nos meta en el medio, quiero que sepas que mi cariño por ti nunca se queda callado. 
+      Tal vez no siempre lo digo todo con palabras, pero mi corazón siempre está hablando por mí. 
+      No importa el tiempo, la distancia ni los días tranquilos: 
+      tú sigues siendo mi lugar seguro, mi pensamiento constante y alguien que quiero cuidar con todo lo que soy. 🤍
+    </p>
+
+    <h2>¿Quieres dejarme un mensaje también?</h2>
+
+    <textarea id="respuesta" placeholder="Escribe aquí lo que sientas..."></textarea>
+    <button onclick="enviarMensaje()">Enviar mensaje</button>
+
+    <p id="estado"></p>
+  </section>
+
+  <script src="script.js"></script>
 </body>
 </html>
