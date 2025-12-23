@@ -8,53 +8,43 @@
 <body>
 
   <!-- PANTALLA 1 -->
-  <section id="pantalla-inicial" class="pantalla activa">
-    <div class="card">
-      <h1>Un mensaje para ti 🤍</h1>
-      <p>
-        Hice esto con mucho cariño, solo para ti.
-      </p>
-      <button onclick="verMensajes()">Ver mensaje</button>
-    </div>
+  <section id="pantalla-inicio" class="pantalla">
+    <h1>Un mensaje para mi amor 🤍</h1>
+    <p class="intro">
+      Esto es solo un pedacito de lo que siento por ti.
+    </p>
+    <button id="ver-mensajes">Ver mensaje</button>
   </section>
 
   <!-- PANTALLA 2 -->
-  <section id="pantalla-mensaje" class="pantalla">
-    <div class="card mensaje">
+  <section id="pantalla-mensajes" class="pantalla" style="display:none;">
+    <div class="mensaje">
       <p>
         Sé que no siempre tenemos de qué hablar, pero quiero que sepas que siempre estás en mi mente.
         Quiero que sepas que siempre te tomo en cuenta para cualquier cosa que haga.
-        Cuando no estoy en mi casa y aún estando en ella, siempre pienso: "ojalá estuvieras aquí".
-        Siempre pienso en estar contigo, en llenarte la carita de besos, en simplemente estar a tu lado 
-        acompañándote en cada paso por más pequeño que sea.
-        Quiero hacerte feliz y quiero que te sientas amado conmigo.
+        Cuando no estoy en mi casa y aún estando en ella, siempre pienso: “ojalá estuvieras aquí”.
+        Siempre pienso en estar contigo, en llenarte la carita de besos, en simplemente estar a tu lado.
+        Quiero hacerte feliz y quiero que se sientas amado conmigo.
+      </p>
+      <p>
         Aunque sabes que tengo un problemita pequeñititico con expresar mis emociones o sentimientos,
-        pero siempre tienes que tener en claro que cuando te digo que te amo,
+        siempre tienes que tener en claro que cuando te digo que te amo,
         lo hago de la manera más sincera posible y de la manera más real que puedas creer.
         Eres una persona muy especial en mi vida y espero que nunca lo olvides.
-        <br><br>
+      </p>
+      <p>
         Y aunque a veces el silencio se nos meta en el medio,
         quiero que sepas que mi cariño por ti nunca se queda callado.
-        Tal vez no siempre lo digo todo con palabras,
-        pero mi corazón siempre está hablando por mí.
-        No importa el tiempo, la distancia ni los días tranquilos:
-        tú sigues siendo mi lugar seguro,
-        mi pensamiento constante
-        y alguien que quiero cuidar con todo lo que soy. 🤍
+        Tú sigues siendo mi lugar seguro y alguien que quiero cuidar con todo lo que soy. 🤍
       </p>
-
-      <button onclick="verFormulario()">¿Quieres dejarme un mensaje?</button>
     </div>
-  </section>
 
-  <!-- PANTALLA 3 -->
-  <section id="pantalla-formulario" class="pantalla">
-    <div class="card">
-      <h2>Tu mensaje 🤍</h2>
-      <textarea id="mensajeInput" placeholder="Escribe algo bonito..."></textarea>
-      <button onclick="enviarMensaje()">Enviar</button>
-      <p id="estado"></p>
-    </div>
+    <h2>¿Quieres dejarme un mensaje tú también?</h2>
+
+    <textarea id="mensajeInput" placeholder="Escribe algo bonito aquí..."></textarea>
+    <button id="enviarMensaje">Enviar</button>
+
+    <p id="estado"></p>
   </section>
 
   <script src="script.js"></script>

@@ -1,79 +1,116 @@
+// CAMBIO DE PANTALLAS
+const btnVer = document.getElementById("ver-mensajes");
+const pantallaInicio = document.getElementById("pantalla-inicio");
+const pantallaMensajes = document.getElementById("pantalla-mensajes");
+
+btnVer.addEventListener("click", () => {
+  pantallaInicio.style.display = "none";
+  pantallaMensajes.style.display = "block";
+});
+
+// SUPABASE (PEGA TUS DATOS AQUÍ)
+const SUPABASE_URL = "https://TU-PROYECTO.supabase.co";
+const SUPABASE_ANON_KEY = "TU-ANON-KEY";
+
+const btnEnviar = document.getElementById("enviarMensaje");
+const input = document.getElementById("mensajeInput");
+const estado = document.getElementById("estado");
+
+btnEnviar.addEventListener("click", async () => {
+  const texto = input.value.trim();
+
+  if (texto === "") {
+    estado.textContent = "¿No tienes nada lindo que decirme? 💔";
+    return;
+  }
+
+  estado.textContent = "Enviando...";
+
+  try {
+    const res = await fetch(`${SUPABASE_URL}/rest/v1/mensajes`, {
+      method: "POST",
+      headers: {
+        "apikey": SUPABASE_ANON_KEY,
+        "Authorization": `Bearer ${SUPABASE_ANON_KEY}`,
+        "Content-Type": "application/json",
+        "Prefer": "return=minimal"
+      },
+      body: JSON.stringify({ contenido: texto })
+    });
+
+    if (!res.ok) throw new Error("Error");
+
+    estado.textContent = "Mensaje enviado 💌";
+    input.value = "";
+  } catch (e) {
+    estado.textContent = "Algo falló 😔";
+  }
+});@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&display=swap');
+
 * {
   box-sizing: border-box;
-  font-family: 'Segoe UI', sans-serif;
 }
 
 body {
   margin: 0;
-  background: linear-gradient(135deg, #0b0b0b, #2b0000);
+  font-family: 'Playfair Display', serif;
+  background: linear-gradient(135deg, #0b0b0b, #2a0000);
   color: #fff;
+  min-height: 100vh;
 }
 
 .pantalla {
-  display: none;
-  min-height: 100vh;
-  padding: 2rem;
-  align-items: center;
-  justify-content: center;
-}
-
-.pantalla.activa {
-  display: flex;
-}
-
-.card {
-  background: rgba(0, 0, 0, 0.6);
-  padding: 2.5rem;
-  border-radius: 18px;
-  max-width: 900px;
-  width: 100%;
+  max-width: 800px;
+  margin: auto;
+  padding: 40px 20px;
   text-align: center;
-  animation: fadeIn 0.8s ease;
+}
+
+h1, h2 {
+  color: #ffb3b3;
+}
+
+.intro {
+  opacity: 0.8;
+  margin-bottom: 30px;
 }
 
 .mensaje {
+  background: rgba(255, 255, 255, 0.08);
+  padding: 25px;
+  border-radius: 12px;
+  margin-bottom: 30px;
   text-align: left;
-  line-height: 1.9;
-  font-size: 1.05rem;
 }
 
 button {
-  margin-top: 2rem;
-  padding: 0.8rem 1.8rem;
-  font-size: 1rem;
+  background: #8b0000;
   border: none;
-  border-radius: 30px;
-  background: linear-gradient(135deg, #b00020, #ff4d6d);
+  padding: 12px 28px;
   color: white;
+  font-size: 16px;
+  border-radius: 30px;
   cursor: pointer;
+  transition: transform 0.2s ease, background 0.2s ease;
 }
 
 button:hover {
-  opacity: 0.9;
+  background: #b30000;
+  transform: scale(1.05);
 }
 
 textarea {
   width: 100%;
-  min-height: 150px;
-  border-radius: 12px;
+  min-height: 120px;
+  border-radius: 10px;
   border: none;
-  padding: 1rem;
-  font-size: 1rem;
-  resize: none;
+  padding: 15px;
+  font-size: 15px;
+  margin-top: 15px;
 }
 
 #estado {
-  margin-top: 1rem;
-  font-size: 0.9rem;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  margin-top: 15px;
+  font-size: 14px;
+  opacity: 0.85;
 }
