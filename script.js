@@ -1,35 +1,48 @@
-// 👉 PEGA AQUÍ TUS DATOS DE SUPABASE
-const SUPABASE_URL = "TU_SUPABASE_URL";
-const SUPABASE_KEY = "TU_SUPABASE_ANON_KEY";
+// CAMBIA ESTO CON TUS DATOS DE SUPABASE
+const SUPABASE_URL = "https://TU_PROYECTO.supabase.co";
+const SUPABASE_KEY = "TU_ANON_KEY";
 
-const mostrarMensaje = () => {
-  document.getElementById("inicio").classList.remove("activa");
-  document.getElementById("mensaje").classList.add("activa");
-};
+function cambiarPantalla(id) {
+  document.querySelectorAll(".pantalla").forEach(p => p.classList.remove("activa"));
+  document.getElementById(id).classList.add("activa");
+}
 
-const enviarMensaje = async () => {
-  const texto = document.getElementById("respuesta").value;
+function verMensajes() {
+  cambiarPantalla("pantalla-mensaje");
+}
+
+function verFormulario() {
+  cambiarPantalla("pantalla-formulario");
+}
+
+async function enviarMensaje() {
+  const mensaje = document.getElementById("mensajeInput").value.trim();
   const estado = document.getElementById("estado");
 
-  if (!texto.trim()) {
+  if (!mensaje) {
     estado.textContent = "Escribe algo primero 🤍";
     return;
   }
 
-  const res = await fetch(`${SUPABASE_URL}/rest/v1/mensajes`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      "apikey": SUPABASE_KEY,
-      "Authorization": `Bearer ${SUPABASE_KEY}`
-    },
-    body: JSON.stringify({ mensaje: texto })
-  });
+  try {
+    const res = await fetch(`${SUPABASE_URL}/rest/v1/mensajes`, {
+      method: "POST",
+      headers: {
+        "apikey": SUPABASE_KEY,
+        "Authorization": `Bearer ${SUPABASE_KEY}`,
+        "Content-Type": "application/json",
+        "Prefer": "return=minimal"
+      },
+      body: JSON.stringify({ contenido: mensaje })
+    });
 
-  if (res.ok) {
-    estado.textContent = "Mensaje enviado con amor 🤍";
-    document.getElementById("respuesta").value = "";
-  } else {
-    estado.textContent = "Algo falló, pero el amor no 😔";
+    if (res.ok) {
+      estado.textContent = "Mensaje enviado con amor 🤍";
+      document.getElementById("mensajeInput").value = "";
+    } else {
+      estado.textContent = "Algo falló 😔";
+    }
+  } catch (e) {
+    estado.textContent = "Error de conexión 😔";
   }
-};
+}
