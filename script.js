@@ -1,6 +1,6 @@
 // CAMBIA ESTO CON TUS DATOS DE SUPABASE
 const SUPABASE_URL = "https://zhtrkbsmgfcspcfhzrbo.supabase.co";
-const SUPABASE_KEY = "sb_publishable_h3msqQrqi9d1Gc7-IG7L1w_zLKRUUmU";
+const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InpodHJrYnNtZ2Zjc3BjZmh6cmJvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjY1MTg2MjQsImV4cCI6MjA4MjA5NDYyNH0.SIVzYOlK-q7c2nuniblSEXFKXQ3UWW8Uc-YKqJJT4lY";
 
 function cambiarPantalla(id) {
   document.querySelectorAll(".pantalla").forEach(p => p.classList.remove("activa"));
