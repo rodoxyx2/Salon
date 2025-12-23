@@ -1,42 +1,49 @@
-const screens = document.querySelectorAll(".screen");
+// script.js
+import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm";
 
-function showScreen(id) {
-  screens.forEach(s => s.classList.remove("active"));
-  document.getElementById(id).classList.add("active");
-}
+const SUPABASE_URL = "https://zhtrkbsmgfcspcfhzrbo.supabase.co";
+const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InpodHJrYnNtZ2Zjc3BjZmh6cmJvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjY1MTg2MjQsImV4cCI6MjA4MjA5NDYyNH0.SIVzYOlK-q7c2nuniblSEXFKXQ3UWW8Uc-YKqJJT4lY";
+const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
-document.getElementById("btn-ver").onclick = () => showScreen("screen-2");
-document.getElementById("btn-responder").onclick = () => showScreen("screen-3");
-document.getElementById("btn-nada").onclick = () => showScreen("screen-4");
+const p1 = document.getElementById("p1");
+const p2 = document.getElementById("p2");
+const p3 = document.getElementById("p3");
+const p4 = document.getElementById("p4");
 
-document.getElementById("btn-enviar").onclick = async () => {
-  const input = document.getElementById("mensajeInput");
+document.getElementById("btn1").onclick = () => {
+  p1.style.display = "none";
+  p2.style.display = "block";
+};
+
+document.getElementById("btn2").onclick = () => {
+  p2.style.display = "none";
+  p3.style.display = "block";
+};
+
+document.getElementById("nada").onclick = () => {
+  p3.style.display = "none";
+  p4.style.display = "block";
+};
+
+document.getElementById("enviar").onclick = async () => {
+  const texto = document.getElementById("mensaje").value.trim();
   const estado = document.getElementById("estado");
-  const mensaje = input.value.trim();
 
-  if (!mensaje) {
+  if (texto === "") {
     estado.textContent = "No tienes nada lindo que decirme 💔";
     return;
   }
 
-  estado.textContent = "Enviando…";
+  estado.textContent = "Enviando...";
 
-  try {
-    const res = await fetch("TU_ENDPOINT_SUPABASE", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "apikey": "TU_ANON_KEY",
-        "Authorization": "Bearer TU_ANON_KEY"
-      },
-      body: JSON.stringify({ contenido: mensaje })
-    });
+  const { error } = await supabase
+    .from("mensajes")
+    .insert([{ contenido: texto }]);
 
-    if (!res.ok) throw new Error();
-
+  if (error) {
+    estado.textContent = "Algo falló 😔";
+  } else {
     estado.textContent = "Mensaje enviado 🤍";
-    input.value = "";
-  } catch {
-    estado.textContent = "Algo falló…";
+    document.getElementById("mensaje").value = "";
   }
 };

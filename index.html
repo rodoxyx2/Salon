@@ -1,63 +1,73 @@
+<!-- index.html -->
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <title>Para ti 🤍</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- PANTALLA 1 -->
-  <section class="screen active" id="screen-1">
-    <h1>Un mensaje para mi amor</h1>
-    <button id="btn-ver">Ver mensajes</button>
-  </section>
+<!-- PANTALLA 1 -->
+<div class="pantalla" id="p1">
+  <h1>Un mensaje para mi amor 🤍</h1>
+  <p class="intro">Presiona el botón cuando estés listo.</p>
+  <button id="btn1">Ver mensaje</button>
+</div>
 
-  <!-- PANTALLA 2 -->
-  <section class="screen" id="screen-2">
-    <p class="mensaje">
+<!-- PANTALLA 2 -->
+<div class="pantalla" id="p2" style="display:none;">
+  <div class="mensaje">
+    <p>
       Sé que no siempre tenemos de qué hablar, pero quiero que sepas que siempre estás en mi mente.
       Quiero que sepas que siempre te tomo en cuenta para cualquier cosa que haga.
-      Cuando no estoy en mi casa y aún estando en ella, siempre pienso: "ojalá estuvieras aquí".
-      Siempre pienso en estar contigo, en llenarte la carita de besos, en simplemente estar a tu lado.
+      Cuando no estoy en mi casa y aún estando en ella, siempre pienso:
+      “ojalá estuvieras aquí”.
+      Siempre pienso en estar contigo, en llenarte la carita de besos,
+      en simplemente estar a tu lado.
       Quiero hacerte feliz y quiero que te sientas amado conmigo.
       Aunque sabes que tengo un problemita pequeñititico con expresar mis emociones o sentimientos,
-      pero siempre tienes que tener en claro que cuando te digo que te amo, lo hago de la manera más
-      sincera posible y de la manera más real que puedas creer.
+      pero siempre tienes que tener en claro que cuando te digo que te amo,
+      lo hago de la manera más sincera posible y de la manera más real que puedas creer.
       Eres una persona muy especial en mi vida y espero que nunca lo olvides.
       <br><br>
-      Y aunque a veces el silencio se nos meta en el medio, quiero que sepas que mi cariño por ti
-      nunca se queda callado. 🤍
+      Y aunque a veces el silencio se nos meta en el medio,
+      quiero que sepas que mi cariño por ti nunca se queda callado.
+      Tal vez no siempre lo digo todo con palabras,
+      pero mi corazón siempre está hablando por mí.
+      No importa el tiempo, la distancia ni los días tranquilos:
+      tú sigues siendo mi lugar seguro,
+      mi pensamiento constante
+      y alguien que quiero cuidar con todo lo que soy. 🤍
     </p>
-    <button id="btn-responder">Responder</button>
-  </section>
+  </div>
+  <button id="btn2">Responder</button>
+</div>
 
-  <!-- PANTALLA 3 -->
-  <section class="screen" id="screen-3">
-    <h2>¿Tienes algo lindo que decirme?</h2>
-    <textarea id="mensajeInput" placeholder="Escribe aquí..."></textarea>
+<!-- PANTALLA 3 -->
+<div class="pantalla" id="p3" style="display:none;">
+  <textarea id="mensaje" placeholder="¿Tienes algo lindo que decirme?"></textarea>
+  <div class="botones">
+    <button id="enviar" class="neon">Enviar mensaje</button>
+    <button id="nada" class="secundario">No tengo nada que decirte</button>
+  </div>
+  <div id="estado"></div>
+</div>
 
-    <div class="botones">
-      <button id="btn-enviar">Enviar mensaje</button>
-      <button id="btn-nada">No tengo nada que decir</button>
-    </div>
-
-    <p id="estado"></p>
-  </section>
-
-  <!-- PANTALLA 4 (DRAMÁTICA) -->
-  <section class="screen" id="screen-4">
-    <h2>Ya veo.</h2>
-    <p class="drama">
-      Entonces para ti yo pongo mi tiempo, mi esfuerzo y mi corazón  
-      para hacerte esto…  
-      y tú no tienes nada que decirme.  
-      <br><br>
-      Supongo que eso también es una respuesta.  
-      Cuídate.
+<!-- PANTALLA 4 -->
+<div class="pantalla" id="p4" style="display:none;">
+  <h2>Ya veo.</h2>
+  <div class="mensaje">
+    <p>
+      Entonces eso es todo.<br><br>
+      Yo poniendo tiempo, cariño y esfuerzo en esta página para ti,
+      y tú sin nada que decirme.<br><br>
+      Supongo que así también se dicen las cosas.
+      Igual, espero que te vaya bien.
     </p>
-  </section>
+  </div>
+</div>
 
-  <script src="script.js"></script>
+<script type="module" src="script.js"></script>
 </body>
 </html>

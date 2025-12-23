@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&display=swap');
+/* style.css */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&display=swap');
 
 * {
   box-sizing: border-box;
@@ -6,76 +7,83 @@
 
 body {
   margin: 0;
-  background: radial-gradient(circle at top, #2b0000, #000);
-  color: #fff;
   font-family: 'Playfair Display', serif;
-}
-
-.screen {
-  display: none;
+  background: linear-gradient(135deg, #0b0b0b, #2a0000);
+  color: #fff;
   min-height: 100vh;
-  padding: 40px;
-  text-align: center;
-  animation: fadeIn 0.8s ease;
 }
 
-.screen.active {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+.pantalla {
+  max-width: 800px;
+  margin: auto;
+  padding: 40px 20px;
+  text-align: center;
 }
 
 h1, h2 {
-  color: #ff4d6d;
-  text-shadow: 0 0 15px rgba(255, 77, 109, 0.6);
+  color: #ffb3b3;
 }
 
-.mensaje, .drama {
-  max-width: 700px;
-  margin: 0 auto 30px;
-  line-height: 1.7;
+.intro {
+  opacity: 0.8;
+  margin-bottom: 30px;
+}
+
+.mensaje {
+  background: rgba(255, 255, 255, 0.08);
+  padding: 25px;
+  border-radius: 12px;
+  margin-bottom: 30px;
+  text-align: left;
 }
 
 textarea {
-  width: 80%;
-  max-width: 600px;
-  height: 120px;
+  width: 100%;
+  min-height: 120px;
+  border-radius: 10px;
+  border: none;
   padding: 15px;
-  border-radius: 12px;
-  border: none;
-  resize: none;
-  font-family: inherit;
-}
-
-button {
-  margin: 10px;
-  padding: 12px 25px;
-  border: none;
-  border-radius: 30px;
-  background: linear-gradient(135deg, #ff4d6d, #c9184a);
-  color: #fff;
-  font-size: 16px;
-  cursor: pointer;
-  box-shadow: 0 0 20px rgba(255, 77, 109, 0.6);
-}
-
-button:hover {
-  transform: scale(1.05);
+  font-size: 15px;
+  margin-top: 15px;
 }
 
 .botones {
   display: flex;
+  gap: 15px;
   justify-content: center;
   flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+button {
+  background: #8b0000;
+  border: none;
+  padding: 12px 28px;
+  color: white;
+  font-size: 16px;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+button:hover {
+  background: #b30000;
+  transform: scale(1.05);
+}
+
+button.neon {
+  background: linear-gradient(90deg, #ff0033, #ff5f6d);
+  box-shadow: 0 0 10px rgba(255, 0, 51, 0.6);
+}
+
+button.secundario {
+  background: transparent;
+  border: 1px solid #ff5f6d;
+  color: #ffb3b3;
 }
 
 #estado {
   margin-top: 15px;
-  font-style: italic;
-  color: #ffb3c1;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(15px); }
-  to { opacity: 1; transform: translateY(0); }
+  font-size: 14px;
+  opacity: 0.85;
 }
