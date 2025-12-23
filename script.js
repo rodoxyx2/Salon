@@ -1,48 +1,37 @@
-// CAMBIO DE PANTALLAS
-const btnVer = document.getElementById("ver-mensajes");
-const pantallaInicio = document.getElementById("pantalla-inicio");
-const pantallaMensajes = document.getElementById("pantalla-mensajes");
+import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm";
 
-btnVer.addEventListener("click", () => {
-  pantallaInicio.style.display = "none";
-  pantallaMensajes.style.display = "block";
-});
+const supabaseUrl = "PON_AQUI_TU_URL";
+const supabaseKey = "PON_AQUI_TU_ANON_KEY";
 
-// SUPABASE (PEGA TUS DATOS AQUÍ)
-const SUPABASE_URL = "https://zhtrkbsmgfcspcfhzrbo.supabase.co";
-const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InpodHJrYnNtZ2Zjc3BjZmh6cmJvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjY1MTg2MjQsImV4cCI6MjA4MjA5NDYyNH0.SIVzYOlK-q7c2nuniblSEXFKXQ3UWW8Uc-YKqJJT4lY";
+const supabase = createClient(supabaseUrl, supabaseKey);
 
-const btnEnviar = document.getElementById("enviarMensaje");
-const input = document.getElementById("mensajeInput");
+const btnEnviar = document.getElementById("enviar");
+const inputMensaje = document.getElementById("mensaje");
 const estado = document.getElementById("estado");
 
 btnEnviar.addEventListener("click", async () => {
-  const texto = input.value.trim();
+  const texto = inputMensaje.value.trim();
 
-  if (texto === "") {
-    estado.textContent = "¿No tienes nada lindo que decirme? 💔";
+  if (!texto) {
+    estado.textContent = "No tienes nada lindo que decirme 💔";
+    estado.className = "error";
     return;
   }
 
-  estado.textContent = "Enviando...";
+  estado.textContent = "Enviando… 💌";
+  estado.className = "enviando";
 
-  try {
-    const res = await fetch(`${SUPABASE_URL}/rest/v1/mensajes`, {
-      method: "POST",
-      headers: {
-        "apikey": SUPABASE_ANON_KEY,
-        "Authorization": `Bearer ${SUPABASE_ANON_KEY}`,
-        "Content-Type": "application/json",
-        "Prefer": "return=minimal"
-      },
-      body: JSON.stringify({ contenido: texto })
-    });
+  const { error } = await supabase
+    .from("mensajes")
+    .insert([{ contenido: texto }]);
 
-    if (!res.ok) throw new Error("Error");
-
-    estado.textContent = "Mensaje enviado 💌";
-    input.value = "";
-  } catch (e) {
-    estado.textContent = "Algo falló 😔";
+  if (error) {
+    estado.textContent = "Algo falló 😞";
+    estado.className = "error";
+    console.error(error);
+  } else {
+    estado.textContent = "Mensaje enviado ❤️";
+    estado.className = "ok";
+    inputMensaje.value = "";
   }
 });

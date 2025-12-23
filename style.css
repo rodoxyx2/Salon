@@ -1,116 +1,70 @@
-// CAMBIO DE PANTALLAS
-const btnVer = document.getElementById("ver-mensajes");
-const pantallaInicio = document.getElementById("pantalla-inicio");
-const pantallaMensajes = document.getElementById("pantalla-mensajes");
-
-btnVer.addEventListener("click", () => {
-  pantallaInicio.style.display = "none";
-  pantallaMensajes.style.display = "block";
-});
-
-// SUPABASE (PEGA TUS DATOS AQUÍ)
-const SUPABASE_URL = "https://TU-PROYECTO.supabase.co";
-const SUPABASE_ANON_KEY = "TU-ANON-KEY";
-
-const btnEnviar = document.getElementById("enviarMensaje");
-const input = document.getElementById("mensajeInput");
-const estado = document.getElementById("estado");
-
-btnEnviar.addEventListener("click", async () => {
-  const texto = input.value.trim();
-
-  if (texto === "") {
-    estado.textContent = "¿No tienes nada lindo que decirme? 💔";
-    return;
-  }
-
-  estado.textContent = "Enviando...";
-
-  try {
-    const res = await fetch(`${SUPABASE_URL}/rest/v1/mensajes`, {
-      method: "POST",
-      headers: {
-        "apikey": SUPABASE_ANON_KEY,
-        "Authorization": `Bearer ${SUPABASE_ANON_KEY}`,
-        "Content-Type": "application/json",
-        "Prefer": "return=minimal"
-      },
-      body: JSON.stringify({ contenido: texto })
-    });
-
-    if (!res.ok) throw new Error("Error");
-
-    estado.textContent = "Mensaje enviado 💌";
-    input.value = "";
-  } catch (e) {
-    estado.textContent = "Algo falló 😔";
-  }
-});@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&display=swap');
-
-* {
-  box-sizing: border-box;
-}
-
 body {
   margin: 0;
   font-family: 'Playfair Display', serif;
-  background: linear-gradient(135deg, #0b0b0b, #2a0000);
-  color: #fff;
+  background: linear-gradient(135deg, #0b0b0b, #2b0008);
+  color: #f5f5f5;
   min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.pantalla {
-  max-width: 800px;
-  margin: auto;
-  padding: 40px 20px;
-  text-align: center;
+.contenedor {
+  max-width: 700px;
+  padding: 40px;
+  background: rgba(0, 0, 0, 0.55);
+  border-radius: 16px;
+  box-shadow: 0 0 40px rgba(150, 0, 0, 0.3);
 }
 
-h1, h2 {
-  color: #ffb3b3;
-}
-
-.intro {
-  opacity: 0.8;
-  margin-bottom: 30px;
-}
-
-.mensaje {
-  background: rgba(255, 255, 255, 0.08);
-  padding: 25px;
-  border-radius: 12px;
-  margin-bottom: 30px;
-  text-align: left;
-}
-
-button {
-  background: #8b0000;
-  border: none;
-  padding: 12px 28px;
-  color: white;
-  font-size: 16px;
-  border-radius: 30px;
-  cursor: pointer;
-  transition: transform 0.2s ease, background 0.2s ease;
-}
-
-button:hover {
-  background: #b30000;
-  transform: scale(1.05);
+p {
+  line-height: 1.8;
+  font-size: 1.1rem;
 }
 
 textarea {
   width: 100%;
-  min-height: 120px;
+  padding: 14px;
   border-radius: 10px;
   border: none;
-  padding: 15px;
-  font-size: 15px;
-  margin-top: 15px;
+  outline: none;
+  font-size: 1rem;
+  resize: none;
+  margin-top: 20px;
+  background: #1a1a1a;
+  color: #fff;
+}
+
+button {
+  margin-top: 20px;
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 30px;
+  background: linear-gradient(90deg, #7a001c, #b3002d);
+  color: white;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: 0.9;
 }
 
 #estado {
   margin-top: 15px;
-  font-size: 14px;
-  opacity: 0.85;
+  text-align: center;
+  font-size: 0.95rem;
+}
+
+#estado.ok {
+  color: #ffb3c1;
+}
+
+#estado.error {
+  color: #ff6b6b;
+}
+
+#estado.enviando {
+  color: #f5c6cb;
 }
