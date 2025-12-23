@@ -1,52 +1,69 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <title>Para ti 🤍</title>
-  <link rel="stylesheet" href="style.css" />
+
+  <!-- Fuente elegante -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+
+  <!-- Estilos -->
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
   <!-- PANTALLA 1 -->
-  <section id="pantalla-inicio" class="pantalla">
+  <div class="contenedor" id="pantalla-inicio">
     <h1>Un mensaje para mi amor 🤍</h1>
-    <p class="intro">
-      Esto es solo un pedacito de lo que siento por ti.
+    <p>
+      Presiona el botón cuando estés listo.
     </p>
-    <button id="ver-mensaje">Ver mensaje</button>
-  </section>
+    <button id="verMensajes">Ver mensajes</button>
+  </div>
 
   <!-- PANTALLA 2 -->
-  <section id="pantalla-mensajes" class="pantalla" style="display:none;">
-    <div class="mensaje">
-      <p>
-        Sé que no siempre tenemos de qué hablar, pero quiero que sepas que siempre estás en mi mente.
-        Quiero que sepas que siempre te tomo en cuenta para cualquier cosa que haga.
-        Cuando no estoy en mi casa y aún estando en ella, siempre pienso: “ojalá estuvieras aquí”.
-        Siempre pienso en estar contigo, en llenarte la carita de besos, en simplemente estar a tu lado.
-        Quiero hacerte feliz y quiero que se sientas amado conmigo.
-      </p>
-      <p>
-        Aunque sabes que tengo un problemita pequeñititico con expresar mis emociones o sentimientos,
-        siempre tienes que tener en claro que cuando te digo que te amo,
-        lo hago de la manera más sincera posible y de la manera más real que puedas creer.
-        Eres una persona muy especial en mi vida y espero que nunca lo olvides.
-      </p>
-      <p>
-        Y aunque a veces el silencio se nos meta en el medio,
-        quiero que sepas que mi cariño por ti nunca se queda callado.
-        Tú sigues siendo mi lugar seguro y alguien que quiero cuidar con todo lo que soy. 🤍
-      </p>
-    </div>
+  <div class="contenedor" id="pantalla-mensaje" style="display:none;">
+    <p>
+      Sé que no siempre tenemos de qué hablar, pero quiero que sepas que siempre estás en mi mente.
+      Quiero que sepas que siempre te tomo en cuenta para cualquier cosa que haga.
+      Cuando no estoy en mi casa y aún estando en ella, siempre pienso:
+      “ojalá estuvieras aquí”.
+      Siempre pienso en estar contigo, en llenarte la carita de besos,
+      en simplemente estar a tu lado.
+      Quiero hacerte feliz y quiero que te sientas amado conmigo.
+      Aunque sabes que tengo un problemita pequeñititico con expresar mis emociones o sentimientos,
+      pero siempre tienes que tener en claro que cuando te digo que te amo,
+      lo hago de la manera más sincera posible y de la manera más real que puedas creer.
+      Eres una persona muy especial en mi vida y espero que nunca lo olvides.
+      <br><br>
+      Y aunque a veces el silencio se nos meta en el medio,
+      quiero que sepas que mi cariño por ti nunca se queda callado.
+      Tal vez no siempre lo digo todo con palabras,
+      pero mi corazón siempre está hablando por mí.
+      No importa el tiempo, la distancia ni los días tranquilos:
+      tú sigues siendo mi lugar seguro,
+      mi pensamiento constante
+      y alguien que quiero cuidar con todo lo que soy. 🤍
+    </p>
 
-    <h2>¿Quieres dejarme un mensaje tú también?</h2>
+    <textarea id="mensaje" rows="4" placeholder="¿Tienes algo lindo que decirme?"></textarea>
+    <button id="enviar">Enviar mensaje</button>
+    <div id="estado"></div>
+  </div>
 
-    <textarea id="mensajeInput" placeholder="Escribe algo bonito aquí..."></textarea>
-    <button id="enviarMensaje">Enviar</button>
+  <!-- SCRIPT -->
+  <script type="module">
+    const btnVer = document.getElementById("verMensajes");
+    const inicio = document.getElementById("pantalla-inicio");
+    const mensaje = document.getElementById("pantalla-mensaje");
 
-    <p id="estado"></p>
-  </section>
+    btnVer.addEventListener("click", () => {
+      inicio.style.display = "none";
+      mensaje.style.display = "block";
+    });
+  </script>
 
-  <script src="script.js"></script>
+  <script type="module" src="script.js"></script>
+
 </body>
 </html>
