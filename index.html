@@ -1,69 +1,63 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Para ti 🤍</title>
-
-  <!-- Fuente elegante -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
-
-  <!-- Estilos -->
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
   <!-- PANTALLA 1 -->
-  <div class="contenedor" id="pantalla-inicio">
-    <h1>Un mensaje para mi amor 🤍</h1>
-    <p>
-      Presiona el botón cuando estés listo.
-    </p>
-    <button id="verMensajes">Ver mensajes</button>
-  </div>
+  <section class="screen active" id="screen-1">
+    <h1>Un mensaje para mi amor</h1>
+    <button id="btn-ver">Ver mensajes</button>
+  </section>
 
   <!-- PANTALLA 2 -->
-  <div class="contenedor" id="pantalla-mensaje" style="display:none;">
-    <p>
+  <section class="screen" id="screen-2">
+    <p class="mensaje">
       Sé que no siempre tenemos de qué hablar, pero quiero que sepas que siempre estás en mi mente.
       Quiero que sepas que siempre te tomo en cuenta para cualquier cosa que haga.
-      Cuando no estoy en mi casa y aún estando en ella, siempre pienso:
-      “ojalá estuvieras aquí”.
-      Siempre pienso en estar contigo, en llenarte la carita de besos,
-      en simplemente estar a tu lado.
+      Cuando no estoy en mi casa y aún estando en ella, siempre pienso: "ojalá estuvieras aquí".
+      Siempre pienso en estar contigo, en llenarte la carita de besos, en simplemente estar a tu lado.
       Quiero hacerte feliz y quiero que te sientas amado conmigo.
       Aunque sabes que tengo un problemita pequeñititico con expresar mis emociones o sentimientos,
-      pero siempre tienes que tener en claro que cuando te digo que te amo,
-      lo hago de la manera más sincera posible y de la manera más real que puedas creer.
+      pero siempre tienes que tener en claro que cuando te digo que te amo, lo hago de la manera más
+      sincera posible y de la manera más real que puedas creer.
       Eres una persona muy especial en mi vida y espero que nunca lo olvides.
       <br><br>
-      Y aunque a veces el silencio se nos meta en el medio,
-      quiero que sepas que mi cariño por ti nunca se queda callado.
-      Tal vez no siempre lo digo todo con palabras,
-      pero mi corazón siempre está hablando por mí.
-      No importa el tiempo, la distancia ni los días tranquilos:
-      tú sigues siendo mi lugar seguro,
-      mi pensamiento constante
-      y alguien que quiero cuidar con todo lo que soy. 🤍
+      Y aunque a veces el silencio se nos meta en el medio, quiero que sepas que mi cariño por ti
+      nunca se queda callado. 🤍
     </p>
+    <button id="btn-responder">Responder</button>
+  </section>
 
-    <textarea id="mensaje" rows="4" placeholder="¿Tienes algo lindo que decirme?"></textarea>
-    <button id="enviar">Enviar mensaje</button>
-    <div id="estado"></div>
-  </div>
+  <!-- PANTALLA 3 -->
+  <section class="screen" id="screen-3">
+    <h2>¿Tienes algo lindo que decirme?</h2>
+    <textarea id="mensajeInput" placeholder="Escribe aquí..."></textarea>
 
-  <!-- SCRIPT -->
-  <script type="module">
-    const btnVer = document.getElementById("verMensajes");
-    const inicio = document.getElementById("pantalla-inicio");
-    const mensaje = document.getElementById("pantalla-mensaje");
+    <div class="botones">
+      <button id="btn-enviar">Enviar mensaje</button>
+      <button id="btn-nada">No tengo nada que decir</button>
+    </div>
 
-    btnVer.addEventListener("click", () => {
-      inicio.style.display = "none";
-      mensaje.style.display = "block";
-    });
-  </script>
+    <p id="estado"></p>
+  </section>
 
-  <script type="module" src="script.js"></script>
+  <!-- PANTALLA 4 (DRAMÁTICA) -->
+  <section class="screen" id="screen-4">
+    <h2>Ya veo.</h2>
+    <p class="drama">
+      Entonces para ti yo pongo mi tiempo, mi esfuerzo y mi corazón  
+      para hacerte esto…  
+      y tú no tienes nada que decirme.  
+      <br><br>
+      Supongo que eso también es una respuesta.  
+      Cuídate.
+    </p>
+  </section>
 
+  <script src="script.js"></script>
 </body>
 </html>
