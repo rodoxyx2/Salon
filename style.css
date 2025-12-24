@@ -357,6 +357,6 @@ button:active {
 }
 
 #btn1 {
-  padding: 10px 35px; /* reduce la altura */
+  padding: 10px 2px; /* reduce la altura */
   font-size: 1.15rem; /* opcional, igual que los otros */
 }
