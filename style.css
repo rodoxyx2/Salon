@@ -158,7 +158,7 @@ h1, h2 {
   font-size: 1.3rem;
   line-height: 1.8;
   color: #f5d0dc;
-  animation: pulse 2s ease-in-out infinite;
+  
 }
 
 @keyframes pulse {
