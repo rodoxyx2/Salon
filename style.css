@@ -50,6 +50,19 @@ body {
   50% { opacity: 0.5; }
 }
 
+/* Efecto de luz ambiente */
+.ambient-light {
+  position: fixed;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 0, 80, 0.08) 0%, transparent 70%);
+  animation: rotate 30s linear infinite;
+  z-index: 1;
+  pointer-events: none;
+}
+
 @keyframes rotate {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
@@ -139,14 +152,6 @@ h1, h2 {
   letter-spacing: 1px;
 }
 
-/* Texto intro */
-.intro {
-  margin-bottom: 40px;
-  font-size: 1.3rem;
-  line-height: 1.8;
-  color: #f5d0dc;
-  animation: pulse 2s ease-in-out infinite;
-}
 
 @keyframes pulse {
   0%, 100% { opacity: 0.9; }
