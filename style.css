@@ -225,7 +225,7 @@ button {
   background: linear-gradient(135deg, #a00028 0%, #ff0050 50%, #a00028 100%);
   background-size: 200% 200%;
   border: 2px solid rgba(255, 105, 135, 0.5);
-  padding: 12px 60px;
+  padding: 12px 200px;
   color: white;
   font-size: 1.5rem;
   font-weight: 600;
