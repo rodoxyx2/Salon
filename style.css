@@ -279,9 +279,8 @@ button:active {
 }
 
 #btn1 {
-  align-self: center; /* lo centra pero no lo estira */
-  height: auto;       /* asegura que no tome toda la altura */
-  padding: 12px 35px; /* ajusta el tamaño interno si quieres */
+  padding: 10px 35px; /* 10px arriba y abajo, 35px izquierda-derecha */
+  min-height: auto;   /* quita cualquier estiramiento forzado */
 }
 
 /* Estado de mensajes */
