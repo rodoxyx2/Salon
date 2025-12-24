@@ -30,7 +30,7 @@ document.getElementById("enviar").onclick = async () => {
   const estado = document.getElementById("estado");
 
   if (texto === "") {
-    estado.textContent = "No tienes nada lindo que decirme 💔";
+    estado.textContent = "¿No tienes nada lindo que decirme? 💔";
     return;
   }
 
