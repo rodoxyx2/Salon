@@ -278,6 +278,16 @@ button:active {
   background-size: 200% 200%;
 }
 
+/* Ajuste exclusivo para el botón "Ver mensaje" */
+#btn1 {
+  padding: 10px 35px;   /* achica el alto y mantiene el ancho */
+  font-size: 1.2rem;    /* reduce un poquito el texto */
+  border-radius: 50px;  /* mantiene la forma redondeada */
+  min-width: 200px;     /* ancho fijo bonito */
+  height: auto;         /* evita que se estire verticalmente */
+  flex: none;           /* evita que herede el flex de button general */
+}
+
 /* Estado de mensajes */
 #estado {
   margin-top: 25px;
@@ -354,13 +364,4 @@ button:active {
   .botones {
     flex-direction: column;
   }
-}
-
-/* Ajuste solo para el botón "Ver mensaje" */
-#btn1 {
-  padding: 10px 35px; /* achica el alto y mantiene el ancho */
-  font-size: 1.2rem;  /* reduce un poquito el tamaño del texto */
-  border-radius: 50px; /* mantiene la forma redondeada */
-  min-width: 200px;    /* ancho fijo bonito */
-  height: auto;        /* evita que se estire verticalmente */
 }
