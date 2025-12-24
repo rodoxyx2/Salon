@@ -278,6 +278,12 @@ button:active {
   background-size: 200% 200%;
 }
 
+#btn1 {
+  align-self: center; /* lo centra pero no lo estira */
+  height: auto;       /* asegura que no tome toda la altura */
+  padding: 12px 35px; /* ajusta el tamaño interno si quieres */
+}
+
 /* Estado de mensajes */
 #estado {
   margin-top: 25px;
@@ -354,9 +360,4 @@ button:active {
   .botones {
     flex-direction: column;
   }
-}
-
-#btn1 {
-  padding: 1px 2px; /* reduce la altura */
-  font-size: 1.15rem; /* opcional, igual que los otros */
 }
