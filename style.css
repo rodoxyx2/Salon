@@ -152,6 +152,14 @@ h1, h2 {
   letter-spacing: 1px;
 }
 
+/* Texto intro */
+.intro {
+  margin-bottom: 40px;
+  font-size: 1.3rem;
+  line-height: 1.8;
+  color: #f5d0dc;
+  animation: pulse 2s ease-in-out infinite;
+}
 
 @keyframes pulse {
   0%, 100% { opacity: 0.9; }
