@@ -24,7 +24,7 @@ body {
   width: 100%;
   height: 100%;
   z-index: 0;
-  background: radial-gradient(ellipse at top, #1a0008 0%, #000000 50%, #000000 100%);
+  background: radial-gradient(ellipse at top, #1a0008 0%, #3b0000 50%, #2e0000d8 100%);
 }
 
 .background::before {
